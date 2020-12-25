@@ -1,8 +1,8 @@
 {
-  "name": "nuxtjs",
+  "name": "website",
   "version": "1.0.0",
-  "description": "My astonishing Nuxt.js project",
-  "author": "msweeneydev",
+  "description": "Georgi Dimulski's personal website",
+  "author": "Dimulski",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -13,6 +13,11 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "@nuxtjs/tailwindcss": "^3.4.2",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
+    "nodemon": "^1.18.9",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
   }
 }

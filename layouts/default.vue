@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="min-h-screen bg-gray-100">
     <Header />
     <nuxt />
   </div>
 </template>
 
 <script>
-import Header from '../components/Header';
+import Header from '@/components/Header';
 
 export default {
   components: {
@@ -16,6 +16,23 @@ export default {
 </script>
 
 <style>
+.section {
+  @apply px-6 py-12;
+}
+
+hero {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-body {
+  @apply px-6 py-12 md:py-36;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
 /* html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;

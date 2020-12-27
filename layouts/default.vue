@@ -28,7 +28,7 @@ export default {
 }
 
 .hero-body {
-  @apply px-6 py-12 md:py-36;
+  @apply px-6 py-12 md:py-24;
   flex-grow: 1;
   flex-shrink: 0;
 }

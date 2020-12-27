@@ -1,18 +1,17 @@
 <template>
-  <section>
+  <section class="hero">
     <div class="hero-body">
-      <div class="container">
-        <!-- columns -->
-        <div>
-          <!-- column -->
-          <div>
-            <span class="block">Hi there!</span>
-            <span class="block">My name is</span>
-            <span class="block">Georgi Dimulski,</span>
-            <span class="block">I’m a junior web developer, live in Plovdiv.</span>
-            <span class="block">Checkout my blog and Résumé 😎</span>
+      <div class="container mx-auto max-w-6xl">
+        <div class="items-center md:flex">
+          <div class="w-full md:w-2/4 ">
+            <span><strong>Hi there!</strong></span>
+            <span>My name is</span>
+            <span class="name"><strong>Georgi Dimulski,</strong></span>
+            <span>I’m a junior web developer,</span>
+            <span>live in <strong>Plovdiv.</strong></span>
+            <span>Check out my blog and résumé. 😎</span>
           </div>
-          <div>
+          <div class="w-full md:w-2/4">
             Resume
           </div>
         </div>
@@ -22,11 +21,9 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
   },
   head() {
     return {
@@ -43,5 +40,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.hero span {
+  display: block;
+  font-size: 32px;
+  font-weight: 300;
+
+  strong {
+    font-weight: bold;
+  }
+
+  &.name {
+    font-size: 48px;
+    font-weight: 600;
+  }
+}
+
 </style>

@@ -1,21 +1,42 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
+  <div class="default-layout min-h-screen">
+    <!-- <ThemeToggle /> -->
     <Header />
-    <nuxt />
+    <Nuxt />
   </div>
 </template>
 
 <script>
+import ThemeToggle from '@/components/ThemeToggle';
 import Header from '@/components/Header';
 
 export default {
   components: {
+    ThemeToggle,
     Header
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+body .default-layout {
+  @apply bg-gray-100 text-black;
+}
+body.dark-theme .default-layout  {
+  @apply text-white;
+  background-color: #16161d; 
+}
+
+@media (prefers-color-scheme: dark) {
+  body .default-layout {
+    @apply text-white;
+    background-color: #16161d;
+  }
+  body.light-theme .default-layout {
+    @apply bg-gray-100 text-black;
+  }
+}
+
 .section {
   @apply px-6 py-12;
 }
@@ -32,5 +53,4 @@ export default {
   flex-grow: 1;
   flex-shrink: 0;
 }
-
 </style>

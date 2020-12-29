@@ -3,41 +3,28 @@ export const state = () => ({
 })
 
 export const getters = {
-  
+  getTheme(state) {
+    return state.theme
+  },
 }
+
 export const mutations = {
-  
+  setTheme(state, theme) {
+    state.theme = theme;
+  }
 }
 
 export const actions = {
   async nuxtServerInit(store, context) {
-    // console.log(this.$auth.$storage.getCookies())
-
     const cookies = context.req.headers.cookie;
-    console.log(cookies)
-    // const match = cookies.match(/theme=(light|dark)/)
-    // if (match) {
-    //   state.theme = match[1];
-    //   console.log(state.theme);
-    // }
-    // console.log(cookies.match(/theme=(light|dark)/))
-    // console.log(cookies.match(/_ga=(GA1.1.127531909.1604270000)/)?[1])
-
-
-    // if (cookies.includes('theme')) {
-    //   console.log(state.theme)
-    //   state.theme = cookies.substring(cookies.indexOf('theme'), )
-    // }
-    // console.log(context.req.headers.cookie)
-    // context.req.headers.cookie['theme'] = 'cool'
-    // console.log(context.req.headers.cookie)
-
-    // console.log(context)
-    // console.log(this)
-
+    if (cookies) {
+      const match = cookies.match(/theme=(light|dark)/);
+      if (match) {
+        store.dispatch('setTheme', match[1]);
+      }
+    }
   },
-  
-  setThemeCookie() {
-
+  setTheme(context, theme) {
+    context.commit('setTheme', theme);
   }
 }

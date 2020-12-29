@@ -1,6 +1,6 @@
 <template>
   <div class="default-layout min-h-screen">
-    <!-- <ThemeToggle /> -->
+    <ThemeToggle />
     <Header />
     <Nuxt />
   </div>
@@ -21,6 +21,8 @@ export default {
 <style lang="scss">
 body .default-layout {
   @apply bg-gray-100 text-black;
+  transition-duration: 1s;
+  transition-property: background-color;
 }
 body.dark-theme .default-layout  {
   @apply text-white;

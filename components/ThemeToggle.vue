@@ -1,5 +1,5 @@
 <template>
-  <button class="" @click="toggleTheme()">
+  <button class="theme-toggle" @click="toggleTheme()">
     <div class="theme-toggle-wheel">
       <p class="theme-toggle-light"></p>
       <p class="theme-toggle-dark"></p>
@@ -8,64 +8,80 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  created() {
-    return;
-    // console.log(window)
-    // const prefersDarkScheme = !!window ? window.matchMedia("(prefers-color-scheme: dark)") : false;
-    // console.log(this)
-    const currentTheme = localStorage.getItem("theme");
-    document.cookie = "theme=" + theme;
-    if (currentTheme == "dark") {
-      document.body.classList.toggle("dark-theme");
-    } else if (currentTheme == "light") {
-      document.body.classList.toggle("light-theme");
+  computed: {
+    ...mapGetters({
+      theme: 'getTheme',
+    })
+  },
+  beforeMount() {
+    if (this.theme) {
+      document.body.classList.toggle(`${this.theme}-theme`);
+    } else {
+      const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      this.$store.dispatch('setTheme', preferredTheme)
+      document.body.classList.toggle(`${this.theme}-theme`);
+      document.cookie = `theme=${this.theme}`
     }
   },
   methods: {
     toggleTheme() {
-      return;
-      // const prefersDarkScheme = window?.matchMedia("(prefers-color-scheme: dark)");
-      if (prefersDarkScheme.matches) {
-        // ...then toggle the light mode class
-        document.body.classList.toggle("light-theme");
-        // ...but use .dark-mode if the .light-mode class is already on the body,
-        var theme = document.body.classList.contains("light-theme") ? "light" : "dark";
-      } else {
-        // Otherwise, let's do the same thing, but for .dark-mode
-        document.body.classList.toggle("dark-theme");
-        var theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+      if (this.theme == 'light') {
+        document.body.classList.toggle(`light-theme`);
+        document.body.classList.toggle(`dark-theme`);
+        this.$store.dispatch('setTheme', 'dark');
+        document.cookie = 'theme=dark';
+      } else if (this.theme == 'dark') {
+        document.body.classList.toggle(`dark-theme`);
+        document.body.classList.toggle(`light-theme`);
+        this.$store.dispatch('setTheme', 'light');
+        document.cookie = 'theme=light';
       }
-      // Finally, let's save the current preference to localStorage to keep using it
-      localStorage.setItem("theme", theme);
     }
   }
 }
 </script>
 
 <style lang="scss">
-button {
-  background-color: rgba(255,255,0,.5);
+body {
+  button.theme-toggle {
+    background-color: rgba(255,255,0,.5);
+    font-size: 13px;
+  }
+  .theme-toggle-wheel {
+    transform: rotate(135deg);
+  }
+}
+body.dark-theme {
+  button.theme-toggle {
+    background-color: rgba(0,0,0,.5);
+  }
+  .theme-toggle-wheel {
+    transform: rotate(-45deg);
+  }
+}
 
-  // -moz-appearance: none;
-  // -webkit-appearance: none;
-  // background: none;
+button.theme-toggle {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
   display: block;
   height: 12em;
-  // left: -6em;
+  left: -6em;
   outline: none;
   overflow: hidden;
   position: fixed;
-  // top: -6em;
+  top: -6em;
   width: 12em;
   z-index: 10;
 }
+
 .theme-toggle-wheel {
-  transform: rotate(135deg);
-  // transform: rotate(-45deg);
   align-items: stretch;
   display: flex;
   flex-direction: column;
@@ -88,7 +104,6 @@ button {
   height: 4em;
   transform: rotate(45deg);
   width: 4em;
-  
 }
 
 .theme-toggle-dark {
@@ -98,7 +113,6 @@ button {
   height: 4em;
   transform: rotate(45deg);
   width: 4em;
-
   background-position: bottom;
 }
 

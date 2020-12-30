@@ -28,6 +28,7 @@
 <script>
 
 export default {
+  transition: 'slide-right',
   components: {
   },
   mounted() {
@@ -233,6 +234,16 @@ export default {
 </script>
 
 <style lang="scss">
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.slide-right-enter,
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
 .hero span {
   display: block;
   font-size: 32px;

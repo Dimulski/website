@@ -1,8 +1,10 @@
 <template>
-  <div class="default-layout min-h-screen">
-    <ThemeToggle />
-    <Header />
-    <Nuxt />
+  <div class="default-layout">
+    <div class="default-layout-content min-h-screen overflow-x-hidden">
+      <ThemeToggle />
+      <Header />
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -19,6 +21,9 @@ export default {
 </script>
 
 <style lang="scss">
+div.default-layout-content {
+  margin-left: calc(100vw - 100%);
+}
 body .default-layout {
   @apply bg-gray-100 text-black;
   transition-duration: 1s;

@@ -241,7 +241,7 @@ export default {
 .slide-right-enter,
 .slide-right-leave-to {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(25px);
 }
 
 .hero span {

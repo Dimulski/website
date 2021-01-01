@@ -47,8 +47,13 @@ export default {
 <style lang="scss">
 body {
   button.theme-toggle {
-    background-color: rgba(255,255,0,.5);
+    background-color: rgba(255, 255, 0, 0.5);
     font-size: 13px;
+  }
+  @media screen and (max-width: theme("screens.md")) {
+    .theme-toggle-wheel {
+      transform: rotate(180deg) !important;
+    }
   }
   .theme-toggle-wheel {
     transform: rotate(135deg);
@@ -56,10 +61,14 @@ body {
 }
 body.dark-theme {
   button.theme-toggle {
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, 0.5);
   }
+  transform: rotate(0) !important;
   .theme-toggle-wheel {
     transform: rotate(-45deg);
+    @media screen and (max-width: theme("screens.md")) {
+      transform: rotate(0deg) !important;
+    }
   }
 }
 
@@ -125,7 +134,21 @@ button.theme-toggle {
 
 .theme-toggle-light,
 .theme-toggle-dark,
-.theme-toggle-wheel {
+ {
   transform-origin: center;
+}
+
+@media screen and (max-width: theme('screens.md')) {
+ .theme-toggle {
+    font-size: 0.625rem !important;
+    position: absolute !important;
+    left: calc(50% - 6em) !important;
+    top: -7em !important;
+  }
+
+  .theme-toggle-light,
+  .theme-toggle-dark {
+    transform: none !important;
+  }
 }
 </style>>

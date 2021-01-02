@@ -48,31 +48,22 @@ export default {
 body {
   button.theme-toggle {
     background-color: rgba(255, 255, 0, 0.5);
-    font-size: 13px;
   }
-  @media screen and (max-width: theme("screens.md")) {
-    .theme-toggle-wheel {
-      transform: rotate(180deg) !important;
+  &.dark-theme {
+    button.theme-toggle {
+      background-color: rgba(0, 0, 0, 0.5);
     }
-  }
-  .theme-toggle-wheel {
-    transform: rotate(135deg);
-  }
-}
-body.dark-theme {
-  button.theme-toggle {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  transform: rotate(0) !important;
-  .theme-toggle-wheel {
-    transform: rotate(-45deg);
-    @media screen and (max-width: theme("screens.md")) {
-      transform: rotate(0deg) !important;
+    .theme-toggle-wheel {
+      transform: rotate(-45deg);
+      @media screen and (max-width: theme("screens.md")) {
+        transform: rotate(0deg);
+      }
     }
   }
 }
 
 button.theme-toggle {
+  font-size: 13px;
   -moz-appearance: none;
   -webkit-appearance: none;
   background: none;
@@ -88,6 +79,12 @@ button.theme-toggle {
   top: -6em;
   width: 12em;
   z-index: 10;
+  @media screen and (max-width: theme('screens.md')) {
+    font-size: 0.625rem;
+    position: absolute;
+    left: calc(50% - 6em);
+    top: -7em;
+  }
 }
 
 .theme-toggle-wheel {
@@ -104,51 +101,33 @@ button.theme-toggle {
   transition-duration: .5s;
   transition-property: transform;
   width: 4em;
-}
-
-.theme-toggle-light {
-  background-image: url('/sun-moon.png');
-  background-repeat: no-repeat;
-  background-size: 4em;
-  height: 4em;
-  transform: rotate(45deg);
-  width: 4em;
-}
-
-.theme-toggle-dark {
-  background-image: url('/sun-moon.png');
-  background-repeat: no-repeat;
-  background-size: 4em;
-  height: 4em;
-  transform: rotate(45deg);
-  width: 4em;
-  background-position: bottom;
+  transform-origin: center;
+  transform: rotate(135deg);
+  @media screen and (max-width: theme("screens.md")) {
+    transform: rotate(180deg);
+  }
 }
 
 .theme-toggle-light,
 .theme-toggle-dark {
+  background-image: url('/sun-moon.png');
+  background-repeat: no-repeat;
+  background-size: 4em;
+  height: 4em;
+  transform: rotate(45deg);
+  width: 4em;
+
   align-items: center;
   display: flex;
   justify-content: center;
-}
-
-.theme-toggle-light,
-.theme-toggle-dark,
- {
   transform-origin: center;
+
+  @media screen and (max-width: theme('screens.md')) {
+    transform: none;
+  }
 }
 
-@media screen and (max-width: theme('screens.md')) {
- .theme-toggle {
-    font-size: 0.625rem !important;
-    position: absolute !important;
-    left: calc(50% - 6em) !important;
-    top: -7em !important;
-  }
-
-  .theme-toggle-light,
-  .theme-toggle-dark {
-    transform: none !important;
-  }
+.theme-toggle-dark {
+  background-position: bottom;
 }
 </style>>

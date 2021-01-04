@@ -44,6 +44,6 @@ export default {
     extend(config, ctx) {},
   },
   serverMiddleware: [
-    '~/api/hello-world.js'
+    '~/server-middleware/log.js'
   ]
 };

@@ -1,6 +1,7 @@
 <template>
   <div>
     cool blogpost
+    content: { }
   </div>
 </template>
 

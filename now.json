@@ -4,10 +4,7 @@
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/vercel-builder",
-      "config": {
-        "serverFiles": ["server-middleware/**"]
-      }
+      "use": "@nuxtjs/vercel-builder"
     },
     {
       "src": "api/**/*.js",
@@ -15,15 +12,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/contents/(?<id>[^/]+)",
-      "dest": "/api/contents/[id].js?id=$id",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    },
     {
       "src": "/api/(.*)",
       "dest": "/api/$1.js",

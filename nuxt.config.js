@@ -42,8 +42,5 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
-  },
-  serverMiddleware: [
-    '~/server-middleware/log.js'
-  ]
+  }
 };

@@ -43,7 +43,4 @@ export default {
      */
     extend(config, ctx) {},
   },
-  serverMiddleware: {
-    '/api': '~/api'
-  }
 };

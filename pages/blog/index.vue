@@ -5,7 +5,7 @@
           Posts
         </h1>
       </div>
-      <BlogArticle v-for="item of [1,2]" :key="item"/>
+      <BlogArticle v-for="item of [1]" :key="item"/>
     </div>
 </template>
 
@@ -13,6 +13,15 @@
 import BlogArticle from '@/components/BlogArticle';
 
 export default {
+  data() {
+    return {
+      posts: [
+        {
+
+        }
+      ]
+    }
+  },
   components: {
     BlogArticle
   }

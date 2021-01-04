@@ -1,6 +1,7 @@
 <template>
   <div class="mt-6">
-    <div class="max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer">
+    <div style="" class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer">
+    <a class="blog">
       <div class="flex justify-between items-center">
         <span class="text-sm text-black font-light">31st Dec, 2020</span>
         <span class="text-sm text-black font-light">15 minute read</span>
@@ -13,6 +14,7 @@
           Implement an end-user friendly rich text editor. 
         </p>
       </div>
+    </a>
     </div>
   </div>
 </template>

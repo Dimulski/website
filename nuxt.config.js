@@ -43,7 +43,7 @@ export default {
      */
     extend(config, ctx) {},
   },
-  serverMiddleware: {
-    '/api': '~/api'
-  }
+  serverMiddleware: [
+    { path: '/api/hello-world', handler: '~/api/hello-world.js' }
+  ]
 };

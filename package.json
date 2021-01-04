@@ -11,6 +11,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "access-log": "^0.4.1",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

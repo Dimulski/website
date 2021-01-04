@@ -44,6 +44,6 @@ export default {
     extend(config, ctx) {},
   },
   serverMiddleware: [
-    { path: '/api/hello-world', handler: '~/api/hello-world.js' }
+    '~/api/hello-world.js'
   ]
 };

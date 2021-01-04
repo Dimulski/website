@@ -11,6 +11,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.3.1",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

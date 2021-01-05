@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.3.1",
+    "faunadb": "^4.0.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

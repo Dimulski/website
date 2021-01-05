@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container max-w-2xl mx-auto px-6 py-16 bg-gray-50 rounded-md">
     cool blogpost
-    content: { }
+    <span class="prose" v-html="blogPosts[0]"></span>
   </div>
 </template>
 
@@ -13,10 +13,17 @@ export default {
   // components: { HeaderSection },
   data() {
     return {
+      blogContent: 'arst',
+      placeholderContetn: '<blockquote><ol><li style="text-align:justify;"><i><s><strong><u>All kinds of </u></strong></s></i><a href="link"><i><s><strong><u>stuff</u><sup><u>[e=mc2]</u></sup></strong></s></i></a></li></ol></blockquote><hr><figure class="image image-style-align-right image_resized" style="width:21.94%;"><img src="https://d2p6bmfx2lhsc1.cloudfront.net/50612fa03453b71cbb24d8788d158a6b.jpg"></figure><p>caption 1</p><hr><figure class="image image-style-align-left image_resized" style="width:45.12%;"><img src="https://d2p6bmfx2lhsc1.cloudfront.net/0bd68eec967d839e30f8c12c90ca14eb.jpg"><figcaption>reply 1</figcaption></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p style="margin-left:8em;text-align:justify;">Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. Nunc dolor velit, rutrum ut ultrices id, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat. Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. <i><strong>Nunc dolor velit, rutrum ut ultrices id</strong></i>, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat.Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. Nunc dolor velit, rutrum ut ultrices id, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat.</p><h2>By the numbers</h2><h3>Sed suscipit leo elit, non scelerisque enim finibus vel.</h3><h4>Fusce aliquet lacus ac justo varius, non commodo ipsum faucibus.</h4><p>Curabitur mi erat, pretium et dignissim</p><ol><li>One by one</li><li>Two</li></ol><ul><li>123</li><li>451</li><li>421</li></ul><p>&nbsp;</p><ul><li style="text-align:center;"><a href="http://dev.metime.com/blog">Three</a></li><li style="text-align:right;">Four</li><li><i><strong>Five</strong></i></li></ul><blockquote><p>"sed lorem in ante volutpat ullamcorper" - me, just now</p></blockquote><figure class="media"><oembed url="https://vimeo.com/56282283"></oembed></figure><p>what else</p><figure class="media"><oembed url="https://www.youtube.com/watch?v=yzphT_xaKk8&amp;t=2s"></oembed></figure><p>&nbsp;</p><p>subscript<a href="link"><sub>[2]</sub></a></p><p style="margin-left:1em;">indentedsuperscript<sup>[neat]</sup></p><hr><p>&nbsp;</p>'
       // categories: [],
       // url: process.env.strapi_url,
       // slug: null
     }
+  },
+  async asyncData(context) {
+    const response = await fetch("https://dimulski.ml/api/blog");
+    const blogs = await response.json();
+    context.store.dispatch("setBlogPosts", blogs.blogs);
   },
   head() {
     // if (this.blog) {
@@ -62,26 +69,27 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // areas: 'getAreas'
+      blogPosts: 'getBlogPosts',
+      theme: 'getTheme'
     }),
     blog() {
-      // return this.$store.getters.getBlogPostBySlug(this.$route.params.slug)
+      // return this.blogPosts[0];
     }
   },
   mounted() {
 
-  },
-  async asyncData(ctx) {
-    // const slug = ctx.route.params.slug
-    // await ctx.$axios
-    //   .get(process.env.strapi_url + '/articles?slug=' + slug)
-    //   .then((response) => {
-    //     if (response.data.length > 0) {
-    //       ctx.store.dispatch('addBlogPosts', response.data[0])
-    //     } else {
-    //       ctx.router.push('/blog')
-    //     }
-    //   })
+    // setTimeout(() => {
+    //   let headers = new Headers();
+
+    //   headers.append('Content-Type', 'application/json');
+    //   headers.append('Accept', 'application/json');
+    //   // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
+    //   headers.append('Origin','http://localhost:3000');
+
+    //   fetch("https://dimulski.ml/api/blog", {
+    //     mode: 'no-cors'
+    //   }).then(r => console.log(r.json()))
+    // }, 4000);
   },
   methods: {
     

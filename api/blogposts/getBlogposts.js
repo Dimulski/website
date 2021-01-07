@@ -1,10 +1,7 @@
 
 import faunadb, { query as q } from 'faunadb';
-
 const { FAUNADB_SECRET: secret } = process.env;
-
 let client;
-
 if (secret) {
   client = new faunadb.Client({ secret });
 }

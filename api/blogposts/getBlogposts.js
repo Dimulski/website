@@ -12,7 +12,7 @@ export default async (req, res) => {
       )
     );
 
-    res.json({ docs });
+    res.json(docs);
   } catch (error) {
     res.status(500).json({ error });
   }

@@ -4,13 +4,13 @@ const { Paginate, Match, Index } = faunadb.query;
 
 export default async (req, res) => {
   try {
-    const docs = client.query(
+    const docs = await client.query(
       Paginate(
         Match(
           Index("blogposts")
         )
       )
-    )
+    );
 
     res.json({ docs });
   } catch (error) {

@@ -5,11 +5,15 @@ const { Paginate, Match, Index } = faunadb.query;
 export default async (req, res) => {
   try {
     const docs = await client.query(
-      Paginate(
-        Match(
-          Index("blogposts")
-        )
-      )
+      Map(
+        Paginate(Match(Index("blogposts"))),
+        Lambda(["title", "description", "created_at", "read_time"], {
+          title: Var("title"),
+          description: Var("description"),
+          created_at: Var("created_at"),
+          read_time: Var("read_time")
+        }
+      ))
     );
 
     res.json(docs);

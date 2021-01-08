@@ -5,25 +5,31 @@
           Posts
         </h1>
       </div>
-      <BlogArticle v-for="item of [1]" :key="item"/>
+      <BlogpostItem v-for="blogpost of blogsposts" :key="blogpost.slug" :post="blogpost"/>
     </div>
 </template>
 
 <script>
-import BlogArticle from '@/components/BlogArticle';
+import BlogpostItem from '@/components/BlogpostItem';
+import { mapGetters } from 'vuex';
 
 export default {
+  components: {
+    BlogpostItem
+  },
   data() {
     return {
-      posts: [
-        {
-
-        }
-      ]
     }
   },
-  components: {
-    BlogArticle
+  computed: {
+    ...mapGetters({
+      blogsposts: 'getBlogposts',
+    })
+  },
+  async asyncData(context) {
+    const response = await fetch("https://dimulski.ml/api/blogposts/getBlogposts");
+    const blogsposts = await response.json();
+    context.store.dispatch("setBlogposts", blogsposts.data);
   }
 };
 </script>

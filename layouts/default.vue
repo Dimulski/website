@@ -45,7 +45,7 @@ body.dark-theme .default-layout  {
 }
 
 .section {
-  @apply px-6 py-12;
+  @apply px-6 pt-16 pb-12 md:py-12;
 }
 
 .hero {
@@ -56,7 +56,7 @@ body.dark-theme .default-layout  {
 }
 
 .hero-body {
-  @apply px-6 py-12 md:py-24;
+  @apply px-6 pt-0 pb-8 md:py-24;
   flex-grow: 1;
   flex-shrink: 0;
 }

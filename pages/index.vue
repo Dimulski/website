@@ -11,11 +11,10 @@
             <span>live in <strong>Plovdiv.</strong></span>
             <span>Check out my blog and résumé. 😎</span>
           </div>
-          <div class="w-full md:w-2/4">
+          <div class="w-full md:w-2/4 pt-8 md:pt-0">
             <div class="flex justify-center">
               <div class="cover atvImg">
                 <div class="atvImg-layer" data-img="/resume.png"></div>
-                <!-- <div class="atvImg-layer" data-img="http://robindelaporte.fr/codepen/visa.png"></div> -->
               </div>
             </div>
           </div>
@@ -26,7 +25,6 @@
 </template>
 
 <script>
-
 export default {
   transition: 'slide-right',
   components: {
@@ -82,8 +80,9 @@ export default {
 
         thisImg.id = "atvImg__" + l;
         containerHTML.className = "atvImg-card-container block cursor-pointer";
-        containerHTML.title = "Download résumé"
-        containerHTML.setAttribute('download', 'Georgi_Dimulski_Resume')
+        containerHTML.title = "View résumé"
+        containerHTML.setAttribute("rel", "noopener noreferrer")
+        containerHTML.setAttribute("target", "_blank")
         containerHTML.href = '/Georgi_Dimulski_Resume.pdf'
         shineHTML.className = "atvImg-shine";
         shadowHTML.className = "atvImg-shadow";
@@ -230,7 +229,7 @@ export default {
       }
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
@@ -258,17 +257,6 @@ export default {
     font-weight: 600;
   }
 }
-
-
-
-// .card-container {
-// 	width : 704px;
-// 	height: 460px;
-// 	position: absolute;
-// 	top: 50%;
-// 	left: 50%;
-// 	transform: translate(-50%, -50%);
-// }
 
 .cover {
   display: inline-block;

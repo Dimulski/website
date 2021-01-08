@@ -1,6 +1,6 @@
 const faunadb = require("faunadb");
 const client = new faunadb.Client({ secret: process.env.FAUNADB_SECRET });
-const { Paginate, Match, Index } = faunadb.query;
+const { Paginate, Match, Index, Map, Lambda, Var } = faunadb.query;
 
 export default async (req, res) => {
   try {

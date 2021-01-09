@@ -21,9 +21,9 @@ export default {
     }
   },
   async asyncData(context) {
-    const response = await fetch("https://dimulski.ml/api/blog");
-    const blogs = await response.json();
-    context.store.dispatch("setBlogPosts", blogs.blogs);
+    // const response = await fetch("https://dimulski.ml/api/blog");
+    // const blogs = await response.json();
+    // context.store.dispatch("setBlogPosts", blogs.blogs);
   },
   head() {
     // if (this.blog) {

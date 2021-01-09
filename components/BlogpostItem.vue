@@ -1,12 +1,12 @@
 <template>
   <div class="mt-6">
     <div style="" class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer">
-      <a class="blog">
+      <a class="blog block">
         <div class="flex justify-between items-center">
-          <span class="text-sm text-black font-light">{{ formattedDate }}</span>
-          <span class="text-sm text-black font-light">{{ post.read_time }} minutes</span>
+          <span class="text-sm text-blue-700 font-light">Coming {{ formattedDate }}</span>
+          <span class="text-sm text-black opacity-50 font-light">{{ post.read_time }} minutes</span>
         </div>
-        <div class="mt-2 mb-1">
+        <div class="mt-2 mb-1 opacity-50">
           <a href="#" class="text-2xl text-black font-bold hover:underline">
             {{ post.title }}
           </a>

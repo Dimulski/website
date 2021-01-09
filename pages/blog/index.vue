@@ -17,6 +17,18 @@ export default {
   components: {
     BlogpostItem
   },
+  head() {
+    return {
+      title: "Blog | Georgi Dimulski",
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Georgi Dimulski's blog`
+        }
+      ]
+    }
+  },
   data() {
     return {
     }

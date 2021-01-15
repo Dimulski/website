@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-3xl mx-auto px-6 py-16 bg-gray-50 rounded-md">
+  <div class="container max-w-3xl mx-auto px-6 py-10 mb-10 bg-gray-50 rounded-md">
     <span class="prose" v-html="blogpost.content"></span>
   </div>
 </template>

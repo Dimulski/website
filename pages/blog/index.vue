@@ -5,7 +5,10 @@
           Posts
         </h1>
       </div>
-      <BlogpostItem v-for="blogpost of blogsposts" :key="blogpost.slug" :post="blogpost"/>
+      <!-- temporary comingSoon shortcut -->
+      <BlogpostItem v-if="firstBlogpost" :post="firstBlogpost" />
+      <BlogpostItem v-if="secondBlogpost" :post="secondBlogpost" :comingSoon="true"/>
+      <!-- <BlogpostItem v-for="blogpost of b blogposts" :key="blogpost.slug" :post="blogpost"/> -->
     </div>
 </template>
 
@@ -35,8 +38,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      blogsposts: 'getBlogposts',
-    })
+      blogposts: 'getBlogposts',
+    }),
+    firstBlogpost() {
+      return this.blogposts ? this.blogposts[0] : null;
+    },
+    secondBlogpost() {
+      return this.blogposts ? this.blogposts[1] : null;
+    },
   },
   async asyncData(context) {
     const response = await fetch("https://dimulski.ml/api/blogposts/getBlogposts");

@@ -1,98 +1,108 @@
 <template>
-  <div class="container max-w-2xl mx-auto px-6 py-16 bg-gray-50 rounded-md">
-    cool blogpost
-    <span class="prose" v-html="blogPosts[0]"></span>
+  <div class="container max-w-3xl mx-auto px-6 py-16 bg-gray-50 rounded-md">
+    <span class="prose" v-html="blogpost.content"></span>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import HeaderSection from '../../components/HeaderSection'
+import hljs from 'highlight.js/lib/core';
+import markdown from 'highlight.js/lib/languages/markdown';
+import css from 'highlight.js/lib/languages/css';
+import scss from 'highlight.js/lib/languages/scss';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
+import json from 'highlight.js/lib/languages/json';
+import csharp from 'highlight.js/lib/languages/csharp';
+import java from 'highlight.js/lib/languages/java';
+import sql from 'highlight.js/lib/languages/sql';
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
+import http from 'highlight.js/lib/languages/http';
+import shell from 'highlight.js/lib/languages/shell';
+import powershell from 'highlight.js/lib/languages/powershell';
+
 export default {
   name: 'Slug',
-  // components: { HeaderSection },
   data() {
     return {
-      blogContent: 'arst',
-      placeholderContetn: '<blockquote><ol><li style="text-align:justify;"><i><s><strong><u>All kinds of </u></strong></s></i><a href="link"><i><s><strong><u>stuff</u><sup><u>[e=mc2]</u></sup></strong></s></i></a></li></ol></blockquote><hr><figure class="image image-style-align-right image_resized" style="width:21.94%;"><img src="https://d2p6bmfx2lhsc1.cloudfront.net/50612fa03453b71cbb24d8788d158a6b.jpg"></figure><p>caption 1</p><hr><figure class="image image-style-align-left image_resized" style="width:45.12%;"><img src="https://d2p6bmfx2lhsc1.cloudfront.net/0bd68eec967d839e30f8c12c90ca14eb.jpg"><figcaption>reply 1</figcaption></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p style="margin-left:8em;text-align:justify;">Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. Nunc dolor velit, rutrum ut ultrices id, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat. Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. <i><strong>Nunc dolor velit, rutrum ut ultrices id</strong></i>, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat.Donec ultrices arcu et elit vehicula congue. In sed lorem in ante volutpat ullamcorper ac eget magna. Nunc dolor velit, rutrum ut ultrices id, tincidunt a mauris. Vivamus at erat eu dolor fringilla tincidunt sodales in purus. Donec pellentesque magna nec metus sagittis, volutpat sollicitudin dolor imperdiet. Sed ornare tortor quis sollicitudin accumsan. Praesent ut tortor nec ex ultricies semper. Donec eu turpis vitae est tempor sollicitudin nec at tortor. Morbi blandit nibh laoreet est faucibus, vel ultrices ipsum aliquet. Quisque sed massa quis odio egestas volutpat.</p><h2>By the numbers</h2><h3>Sed suscipit leo elit, non scelerisque enim finibus vel.</h3><h4>Fusce aliquet lacus ac justo varius, non commodo ipsum faucibus.</h4><p>Curabitur mi erat, pretium et dignissim</p><ol><li>One by one</li><li>Two</li></ol><ul><li>123</li><li>451</li><li>421</li></ul><p>&nbsp;</p><ul><li style="text-align:center;"><a href="http://dev.metime.com/blog">Three</a></li><li style="text-align:right;">Four</li><li><i><strong>Five</strong></i></li></ul><blockquote><p>"sed lorem in ante volutpat ullamcorper" - me, just now</p></blockquote><figure class="media"><oembed url="https://vimeo.com/56282283"></oembed></figure><p>what else</p><figure class="media"><oembed url="https://www.youtube.com/watch?v=yzphT_xaKk8&amp;t=2s"></oembed></figure><p>&nbsp;</p><p>subscript<a href="link"><sub>[2]</sub></a></p><p style="margin-left:1em;">indentedsuperscript<sup>[neat]</sup></p><hr><p>&nbsp;</p>'
-      // categories: [],
-      // url: process.env.strapi_url,
-      // slug: null
+      post: null
     }
-  },
-  async asyncData(context) {
-    // const response = await fetch("https://dimulski.ml/api/blog");
-    // const blogs = await response.json();
-    // context.store.dispatch("setBlogPosts", blogs.blogs);
-  },
-  head() {
-    // if (this.blog) {
-    //   return {
-    //     title: this.blog.meta_title,
-    //     meta: [
-    //       {
-    //         hid: 'og:site_name',
-    //         name: 'og:site_name',
-    //         property: 'og:site_name',
-    //         content: this.blog.meta_title
-    //       },
-    //       {
-    //         hid: 'og:title',
-    //         name: 'og:title',
-    //         property: 'og:title',
-    //         content: this.blog.meta_title
-    //       },
-    //       {
-    //         hid: 'og:description',
-    //         name: 'og:description',
-    //         property: 'og:description',
-    //         content: this.blog.meta_description
-    //       },
-    //       {
-    //         hid: 'og:image',
-    //         name: 'og:image',
-    //         property: 'og:image',
-    //         content: this.url + this.blog.img[0].url
-    //       },
-    //       {
-    //         hid: 'description',
-    //         name: 'description',
-    //         content: this.blog.meta_description
-    //       },
-    //       {
-    //         name: 'keywords',
-    //         content: this.blog.meta_keywords
-    //       }
-    //     ]
-    //   }
-    // }
   },
   computed: {
     ...mapGetters({
-      blogPosts: 'getBlogPosts',
-      theme: 'getTheme'
-    }),
-    blog() {
-      // return this.blogPosts[0];
+      blogpost: 'getBlogpost',
+    })
+  },
+  async asyncData(context) {
+    const response = await fetch(`https://dimulski.ml/api/blogposts/getBlogpostBySlug?slug=${context.route.params.slug}`);
+    const blogpost = await response.json();
+    context.store.dispatch("setBlogpost", blogpost.data);
+  },
+  head() {
+    return {
+      title: this.blogpost.meta_title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.blogpost.meta_description
+        },
+        {
+          name: 'keywords',
+          content: this.blogpost.meta_keywords
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          property: 'og:site_name',
+          content: 'dimulski.ml'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: this.blogpost.meta_title
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content: this.blogpost.meta_description
+        },
+        // {
+        //   hid: 'og:image',
+        //   name: 'og:image',
+        //   property: 'og:image',
+        //   content: this.url + this.blogpost.img[0].url
+        // },
+      ]
     }
   },
-  mounted() {
-
-    // setTimeout(() => {
-    //   let headers = new Headers();
-
-    //   headers.append('Content-Type', 'application/json');
-    //   headers.append('Accept', 'application/json');
-    //   // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
-    //   headers.append('Origin','http://localhost:3000');
-
-    //   fetch("https://dimulski.ml/api/blog", {
-    //     mode: 'no-cors'
-    //   }).then(r => console.log(r.json()))
-    // }, 4000);
-  },
-  methods: {
+  beforeMount() {
+    hljs.registerLanguage('markdown', markdown);
+    hljs.registerLanguage('css', css);
+    hljs.registerLanguage('scss', scss);
+    hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('typescript', typescript);
+    hljs.registerLanguage('json', json);
+    hljs.registerLanguage('csharp', csharp);
+    hljs.registerLanguage('java', java);
+    hljs.registerLanguage('sql', sql);
+    hljs.registerLanguage('dockerfile', dockerfile);
+    hljs.registerLanguage('http', http);
+    hljs.registerLanguage('shell', shell);
+    hljs.registerLanguage('powershell', powershell);
     
+    hljs.initHighlightingOnLoad();
+
+  },
+  mounted() {
+    document.querySelectorAll('div.code').forEach(block => {
+      hljs.highlightBlock(block);
+    });
+  },
+  
+  methods: {
     
   }
 }

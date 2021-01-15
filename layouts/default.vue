@@ -21,6 +21,16 @@ export default {
 </script>
 
 <style lang="scss">
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(25px);
+}
+
 div.default-layout-content {
   margin-left: calc(100vw - 100%);
 }

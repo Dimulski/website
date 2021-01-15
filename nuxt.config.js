@@ -25,7 +25,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    {
+      src: "~/node_modules/highlight.js/styles/atom-one-dark.css",
+      lang: "css"
+    }
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -34,7 +39,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/tailwindcss'
+  ],
+  buildModules: [
+    "@nuxtjs/tailwindcss"
   ],
   /*
    ** Build configuration

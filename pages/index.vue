@@ -26,7 +26,6 @@
 
 <script>
 export default {
-  transition: 'slide-right',
   components: {
   },
   mounted() {
@@ -46,6 +45,7 @@ export default {
   },
   methods: {
     atvImg() {
+      // copy pasted code. to be replaced with smart Vue component.
       var d = document,
         de = d.documentElement,
         bd = d.getElementsByTagName("body")[0],
@@ -233,16 +233,6 @@ export default {
 </script>
 
 <style lang="scss">
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-.slide-right-enter,
-.slide-right-leave-to {
-  opacity: 0;
-  transform: translateX(25px);
-}
-
 .hero span {
   display: block;
   font-size: 32px;

@@ -1,6 +1,7 @@
 export const state = () => ({
   theme: null,
-  blogposts: []
+  blogposts: [],
+  blogpost: null
 });
 
 export const getters = {
@@ -10,9 +11,9 @@ export const getters = {
   getBlogposts(state) {
     return state.blogposts;
   },
-  getBlogpostById(state, index) {
-    return state.blogposts[index];
-  },
+  getBlogpost(state) {
+    return state.blogpost;
+  }
 };
 
 export const mutations = {
@@ -24,6 +25,9 @@ export const mutations = {
   },
   addBlogpost(state, blogpost) {
     state.blogposts.push(blogpost);
+  },
+  setBlogpost(state, blogpost) {
+    state.blogpost = blogpost;
   }
 };
 
@@ -45,5 +49,8 @@ export const actions = {
   },
   addBlogpost(context, blogpost) {
     context.commit('addBlogpost', blogpost);
+  },
+  setBlogpost(context, blogpost) {
+    context.commit('setBlogpost', blogpost);
   }
 };

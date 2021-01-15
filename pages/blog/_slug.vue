@@ -92,14 +92,10 @@ export default {
     hljs.registerLanguage('http', http);
     hljs.registerLanguage('shell', shell);
     hljs.registerLanguage('powershell', powershell);
-    
-    hljs.initHighlightingOnLoad();
-
   },
   mounted() {
-    document.querySelectorAll('div.code').forEach(block => {
-      hljs.highlightBlock(block);
-    });
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
   },
   
   methods: {

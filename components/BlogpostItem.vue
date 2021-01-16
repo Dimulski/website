@@ -18,8 +18,11 @@
 </template>
 
 <script>
+import { dateFormatMixin } from '../mixins/dateFormatMixin';
+
 export default {
   name: 'BlogpostItem',
+  mixins: [dateFormatMixin],
   props: ['post', 'comingSoon'],
   data() {
     return {
@@ -28,12 +31,6 @@ export default {
   },
   beforeMount() {
     this.formattedDate = this.formatDate(this.post.created_at, navigator.language)
-  },
-  methods: {
-    formatDate(isoDate, locale = undefined) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(this.post.created_at).toLocaleDateString(locale, options);
-    }
   }
 };
 </script>

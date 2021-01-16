@@ -1,11 +1,18 @@
 <template>
-  <div class="container max-w-3xl mx-auto px-6 py-10 mb-10 bg-gray-50 rounded-md">
-    <span class="prose" v-html="blogpost.content"></span>
-  </div>
+  <main class="mb-10 px-3">
+    <article class="container max-w-3xl mx-auto py-10 rounded-md px-5 lg:px-9 bg-white">
+      <h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">{{ blogpost.title }}</h1>
+      <div class="flex text-gray-700 flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
+        <p class="text-sm dark:text-gray-300"><time :datetime="blogpost.created_at">{{ formattedDate }}</time></p>
+        <p class="text-sm min-w-32 mt-2 md:mt-0">{{ blogpost.read_time }} min read</p>
+      </div>
+      <span class="prose" v-html="blogpost.content"></span>
+    </article>
+  </main>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 import hljs from 'highlight.js/lib/core';
 import markdown from 'highlight.js/lib/languages/markdown';
 import css from 'highlight.js/lib/languages/css';
@@ -20,18 +27,17 @@ import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import http from 'highlight.js/lib/languages/http';
 import shell from 'highlight.js/lib/languages/shell';
 import powershell from 'highlight.js/lib/languages/powershell';
+import { dateFormatMixin } from '../../mixins/dateFormatMixin';
 
 export default {
-  name: 'Slug',
-  data() {
-    return {
-      post: null
-    }
-  },
+  mixins: [dateFormatMixin],
   computed: {
     ...mapGetters({
       blogpost: 'getBlogpost',
-    })
+    }),
+    formattedDate() {
+      return this.formatDate(this.blogpost.created_at, typeof navigator !== "undefined" ? navigator.language : undefined);
+    }
   },
   async asyncData(context) {
     const response = await fetch(`https://dimulski.ml/api/blogposts/getBlogpostBySlug?slug=${context.route.params.slug}`);
@@ -97,10 +103,6 @@ export default {
     hljs.initHighlighting.called = false;
     hljs.initHighlighting();
   },
-  
-  methods: {
-    
-  }
 }
 </script>
 

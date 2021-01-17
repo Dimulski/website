@@ -103,7 +103,7 @@ button.theme-toggle {
   width: 4em;
   transform-origin: center;
   transform: rotate(135deg);
-  @media screen and (max-width: theme("screens.md")) {
+  @media screen and (max-width: theme('screens.md')) {
     transform: rotate(180deg);
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-body">
-      <div class="container mx-auto max-w-6xl">
+      <div class="container mx-auto max-w-6xl md:pb-12 2xl:pb-24">
         <div class="items-center md:flex">
           <div class="w-full md:w-2/4 ">
             <span><strong>Hi there!</strong></span>
@@ -11,7 +11,7 @@
             <span>live in <strong>Plovdiv.</strong></span>
             <span>Check out my blog and résumé. 😎</span>
           </div>
-          <div class="w-full md:w-2/4 pt-8 md:pt-0">
+          <div class="w-full md:w-2/4 py-8 md:py-0">
             <div class="flex justify-center">
               <div class="cover atvImg">
                 <div class="atvImg-layer" data-img="/resume.png"></div>
@@ -233,18 +233,24 @@ export default {
 </script>
 
 <style lang="scss">
-.hero span {
-  display: block;
-  font-size: 32px;
-  font-weight: 300;
-
-  strong {
-    font-weight: bold;
+.hero {
+  @media screen and (min-width: calc(theme("screens.md"))) {
+    height: calc(100vh - 128px);
   }
 
-  &.name {
-    font-size: 48px;
-    font-weight: 600;
+  span {
+    display: block;
+    font-size: 32px;
+    font-weight: 300;
+
+    strong {
+      font-weight: bold;
+    }
+
+    &.name {
+      font-size: 48px;
+      font-weight: 600;
+    }
   }
 }
 

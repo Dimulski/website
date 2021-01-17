@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto px-6 py-16">
+    <div class="container mx-auto px-6 pb-12 pt-4 md:py-16">
       <div class="max-w-2xl pb-4 mx-auto">
         <h1 class="text-4xl">
           Posts

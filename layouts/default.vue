@@ -66,8 +66,6 @@ body.dark-theme .default-layout  {
 }
 
 .hero-body {
-  @apply px-6 pt-0 pb-8 md:py-24;
-  flex-grow: 1;
-  flex-shrink: 0;
+  @apply px-6 my-auto;
 }
 </style>

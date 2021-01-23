@@ -1,11 +1,21 @@
 <template>
   <div class="mt-6">
-    <NuxtLink :to="comingSoon ? '#' : `/blog/${post.slug}`" class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer">
+    <NuxtLink
+      :to="post.state ? `/blog/${post.slug}` : '#'"
+      class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer"
+    >
       <div class="flex justify-between items-center">
-        <span class="text-sm text-blue-700 font-light">{{ comingSoon ? 'Coming soon' : formattedDate }}</span>
-        <span :class="{ 'opacity-50': comingSoon }" class="text-sm text-black  font-light">{{ post.read_time }} min read</span>
+        <span class="text-sm text-blue-700 font-light">
+          {{ post.state ? formattedDate : "Coming soon" }}
+        </span>
+        <span
+          :class="{ 'opacity-50': !post.state }"
+          class="text-sm text-black font-light"
+        >
+          {{ post.read_time }} min read
+        </span>
       </div>
-      <div :class="{ 'opacity-50': comingSoon }" class="mt-2 mb-1">
+      <div :class="{ 'opacity-50': !post.state }" class="mt-2 mb-1">
         <p class="text-2xl text-black font-bold hover:underline">
           {{ post.title }}
         </p>
@@ -18,20 +28,23 @@
 </template>
 
 <script>
-import { dateFormatMixin } from '../mixins/dateFormatMixin';
+import { dateFormatMixin } from "../mixins/dateFormatMixin";
 
 export default {
-  name: 'BlogpostItem',
+  name: "BlogpostItem",
   mixins: [dateFormatMixin],
-  props: ['post', 'comingSoon'],
+  props: ["post"],
   data() {
     return {
-      formattedDate: this.formatDate(this.post.created_at)
-    }
+      formattedDate: this.formatDate(this.post.created_at),
+    };
   },
   beforeMount() {
-    this.formattedDate = this.formatDate(this.post.created_at, navigator.language)
-  }
+    this.formattedDate = this.formatDate(
+      this.post.created_at,
+      navigator.language
+    );
+  },
 };
 </script>
 

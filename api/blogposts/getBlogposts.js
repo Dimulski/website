@@ -7,12 +7,13 @@ export default async (req, res) => {
     const docs = await client.query(
       Map(
         Paginate(Match(Index("blogposts"))),
-        Lambda(["title", "description", "created_at", "read_time", "slug"], {
+        Lambda(["title", "description", "created_at", "read_time", "slug", "state"], {
           title: Var("title"),
           description: Var("description"),
           created_at: Var("created_at"),
           read_time: Var("read_time"),
-          slug: Var("slug")
+          slug: Var("slug"),
+          state: Var("state")
         }
       ))
     );

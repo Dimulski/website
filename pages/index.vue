@@ -7,7 +7,7 @@
             <span><strong>Hi there!</strong></span>
             <span>My name is</span>
             <span class="name"><strong>Georgi Dimulski,</strong></span>
-            <span>I’m a junior web developer,</span>
+            <span>I’m a web developer,</span>
             <span>live in <strong>Plovdiv.</strong></span>
             <span>Check out my blog and résumé. 😎</span>
           </div>

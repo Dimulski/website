@@ -9,7 +9,7 @@
             <span class="name"><strong>Georgi Dimulski,</strong></span>
             <span>I’m a web developer,</span>
             <span>live in <strong>Plovdiv.</strong></span>
-            <span>Check out my blog and résumé. 😎</span>
+            <span>Check out my blog and outdated résumé. 😎</span>
           </div>
           <div class="w-full md:w-2/4 py-8 md:py-0">
             <div class="flex justify-center">

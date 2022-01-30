@@ -40,7 +40,7 @@ export default css.global`
     }
 
     &__hero-name {
-      font-size: 48px;
+      font-size: 48px !important;
       font-weight: 600;
     }
 

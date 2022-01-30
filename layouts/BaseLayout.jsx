@@ -9,8 +9,8 @@ const BaseLayout = (props) => {
   return (
     <>
       <ThemeProvider>
-        <div className="default-layout">
-          <div className="default-layout-content min-h-screen overflow-x-hidden">
+        <div className="default-site-layout">
+          <div className="default-site-layout__content">
             <ThemeToggle />
             <main>{props.content}</main>
           </div>

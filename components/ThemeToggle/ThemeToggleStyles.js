@@ -18,6 +18,7 @@ body {
   }
 }
 
+// TODO: fix garbage css
 button.theme-toggle {
   font-size: 13px;
   -moz-appearance: none;

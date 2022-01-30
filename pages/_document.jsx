@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 import { THEME_KEY } from '@utils/constants';
 
@@ -49,4 +49,4 @@ class WebsiteDocument extends Document {
   }
 }
 
-export default WebsiteDocument
+export default WebsiteDocument;

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import BaseLayout from '@layouts/BaseLayout';
+
 import HomepageStyles from '@styles/HomepageStyles';
 // import dynamic from 'next/dynamic';
 

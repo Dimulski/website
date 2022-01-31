@@ -6,7 +6,7 @@ const Header = dynamic(() => import('@components/Header/Header'));
 import BaseLayoutStyles from '@styles/BaseLayoutStyles';
 import TailwindStyles from '@styles/TailwindStyles';
 
-const BaseLayout = (props) => {
+export default function BaseLayout(props) {
   return (
     <>
       <ThemeProvider>
@@ -24,5 +24,3 @@ const BaseLayout = (props) => {
     </>
   );
 };
-
-export default BaseLayout;

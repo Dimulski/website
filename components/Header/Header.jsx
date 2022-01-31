@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import HeaderStyles from './HeaderStyles';
 
-const Header = () => {
+export default function Header() {
   const { theme } = useContext(ThemeContext);
 
   const iconColor = () => {
@@ -38,5 +38,3 @@ const Header = () => {
     </>
   );
 }
-
-export default Header;

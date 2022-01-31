@@ -1,7 +1,5 @@
-const Website = ({ Component, pageProps }) => {
+export default function Website({ Component, pageProps }) {
   return (
     <Component {...pageProps} />
   );
 };
-
-export default Website;

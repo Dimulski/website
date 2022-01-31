@@ -4,7 +4,7 @@ import BaseLayout from '@layouts/BaseLayout';
 
 import HomepageStyles from '@styles/HomepageStyles';
 
-const Home = () => {
+const Homepage = () => {
 
   useEffect(() => {
     atvImg();
@@ -263,4 +263,4 @@ export async function getStaticProps(ctx) {
   }
 }
 
-export default Home;
+export default Homepage;

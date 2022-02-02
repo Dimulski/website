@@ -1,9 +1,9 @@
-import Link from 'next/link'
+import dynamic from 'next/dynamic';
+const BlogpostItem = dynamic(() => import('@components/BlogpostItem/BlogpostItem'));
 
 import BlogStyles from './BlogStyles';
 
 export default function Blog({ blogposts }) {
-  console.log(blogposts);
 
   return (
     <>
@@ -11,11 +11,12 @@ export default function Blog({ blogposts }) {
         <div className="blog__page-title-container">
           <h1 className="blog__page-title">Posts</h1>
         </div>
-        {/* <BlogpostItem
-          v-for="blogpost of blogposts"
-          :key="blogpost.slug"
-          :post="blogpost"
-        /> */}
+        {blogposts.map((blogpost, index) => (
+          <BlogpostItem
+            post={blogpost}
+            key={index}
+          />  
+        ))}
       </div>
 
       <style jsx>

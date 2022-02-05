@@ -202,7 +202,6 @@ export default function Homepage() {
         <meta name="description" content="Georgi Dimulski's personal website" />
       </Head>
 
-      {/* TODO: rename classes */}
       <BaseLayout
         content={
           <>

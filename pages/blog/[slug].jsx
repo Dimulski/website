@@ -1,27 +1,23 @@
 import dynamic from 'next/dynamic'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import getBlogpostsSlugs from '@api/blogposts/getBlogpostsSlugs';
-import getBlogposts from '@api/blogposts/getBlogposts';
 import getBlogpostBySlug from '@api/blogposts/getBlogpostBySlug';
 import BaseLayout from '@layouts/BaseLayout';
 const Blogpost = dynamic(() => import('@components/Blogpost/Blogpost'));
 
-import { useRouter } from 'next/router';
-
 export async function getStaticPaths() {
-  const blogpostSlugs = await getBlogposts();
-  console.log(blogpostSlugs);
+  const blogpostSlugs = await getBlogpostsSlugs();
+
   const paths = blogpostSlugs.map((blog) => {
     return { params: { slug: blog.slug } }
   });
-  console.log(paths);
 
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps(context) {
-  console.log('inherit');
-  console.log(context);
-  const blogpost = await getBlogpostBySlug(context.params.slug)
+  const blogpost = await getBlogpostBySlug(context.params.slug);
 
   return {
     props: { blogpost },
@@ -39,10 +35,21 @@ export default function BlogpostPage({ blogpost }) {
   }
 
   return (
-    <BaseLayout
-      content={
-        <Blogpost post={blogpost} />
-      }
-    />
+    <>
+      <Head>
+        <title>{blogpost.title}</title>
+        <meta name="description" content={blogpost.meta_description} />
+        <meta name="keywords" content={blogpost.meta_keywords} />
+        <meta property="og:title" content={blogpost.meta_title} />
+        <meta property="og:description" content={blogpost.meta_description} />
+        <meta property="og:site_name" content="dimulski.ml" />
+      </Head>
+
+      <BaseLayout
+        content={
+          <Blogpost post={blogpost} />
+        }
+      />
+    </>
   )
 }

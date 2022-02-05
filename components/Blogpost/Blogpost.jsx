@@ -1,6 +1,5 @@
-import Link from 'next/link'
+import { useEffect, useState } from 'react';
 import useFormatDate from '@hooks/useFormatDate.js';
-
 import hljs from "highlight.js/lib/core";
 import markdown from "highlight.js/lib/languages/markdown";
 import css from "highlight.js/lib/languages/css";
@@ -17,7 +16,6 @@ import shell from "highlight.js/lib/languages/shell";
 import powershell from "highlight.js/lib/languages/powershell";
 
 import BlogpostStyles from './BlogpostStyles';
-import { useEffect, useState } from 'react';
 
 export default function Blogpost({ post }) {
   const formatDate = useFormatDate();
@@ -40,29 +38,28 @@ export default function Blogpost({ post }) {
     hljs.registerLanguage("http", http);
     hljs.registerLanguage("shell", shell);
     hljs.registerLanguage("powershell", powershell);
-
     hljs.initHighlighting.called = false;
     hljs.highlightAll()
-  }, []);
+  }, [formatDate, post.created_at]);
 
   return (
     <>
       <main className="blogpost">
         <article className="blogpost__article">
           <h1 className="blogpost__title">
-            { post.title }
+            {post.title}
           </h1>
           <div className="blogpost__info">
             <p className="blogpost__created-at">
-              <time dateTime={post.created_at}>{ formattedDate }</time>
+              <time dateTime={post.created_at}>
+                {formattedDate}
+              </time>
             </p>
             <p className="blogpost__read-time">
-              { post.read_time } min read
+              {post.read_time} min read
             </p>
           </div>
-          <span className="prose blogpost__content" dangerouslySetInnerHTML={{ __html: post.content }}>
-
-          </span>
+          <span className="blogpost__content prose" dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
       </main>
 

@@ -5,9 +5,9 @@ const { Paginate, Match, Index, Map, Lambda, Var } = faunadb.query;
 export default async function getBlogpostsSlugs() {
   const docs = await client.query(
     Map(
-      Match(Index("blogposts_slugs_test")),
+      Paginate(Match(Index("blogposts_slugs")), { size: 100000 }),
       Lambda(["slug"], {
-        slug: Var("slug"),
+        slug: Var("slug")
       })
     )
   );

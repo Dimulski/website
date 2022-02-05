@@ -3,7 +3,7 @@ import { ThemeContext } from './ThemeContext';
 
 import ThemeToggleStyles from './ThemeToggleStyles';
 
-const ThemeToggle = () => {
+export default function ThemeToggle() {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
@@ -29,5 +29,3 @@ const ThemeToggle = () => {
     </>
   );
 }
-
-export default ThemeToggle;

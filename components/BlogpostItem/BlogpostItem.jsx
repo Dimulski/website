@@ -4,7 +4,7 @@ import useFormatDate from '@hooks/useFormatDate.js';
 import BlogpostItemStyles from './BlogpostItemStyles';
 import { useEffect, useState } from 'react';
 
-export default function Blog({ post }) {
+export default function BlogpostItem({ post }) {
   const formatDate = useFormatDate();
   const [formattedDate, setFormattedDate] = useState("");
 

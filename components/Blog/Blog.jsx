@@ -15,7 +15,7 @@ export default function Blog({ blogposts }) {
           <BlogpostItem
             post={blogpost}
             key={index}
-          />  
+          />
         ))}
       </div>
 

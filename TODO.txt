@@ -4,3 +4,10 @@ can @tailwindcss/typography be dev dependancy?
 
 use typography from styled-jsx only instead of global tailwind import
 
+add better font
+
+custom cursor?
+
+modern scrollbar
+
+header links active/hover/click states

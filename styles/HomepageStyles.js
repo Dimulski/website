@@ -12,7 +12,7 @@ export default css.global`
       flex-direction: column;
       justify-content: space-between;
 
-      span {
+      h1 {
         display: block;
         font-size: 32px;
         font-weight: 300;
@@ -28,11 +28,22 @@ export default css.global`
     }
 
     &__hero-container {
-      @apply container mx-auto max-w-6xl md:pb-12 2xl:pb-24;
+      @apply container mx-auto max-w-6xl;
     }
 
     &__hero-container-inner {
-      @apply items-center md:flex;
+      @apply max-w-max mx-auto mt-12 mb-24 2xl:max-w-2xl sm:my-24 lg:my-40 xl:my-48 2xl:my-56;
+    }
+
+    &__hero-heading {
+      @apply animate-fadeUp;
+      opacity: 0;
+      animation-fill-mode: forwards;
+      animation-delay: .9s;
+
+      &--follow-up {
+        animation-delay: 1.1s;
+      }
     }
 
     &__hero-left {

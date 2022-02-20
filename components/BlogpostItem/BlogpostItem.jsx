@@ -1,22 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link'
 import useFormatDate from '@hooks/useFormatDate.js';
 import BlogpostItemStyles from './BlogpostItemStyles';
+import VanillaTilt from 'vanilla-tilt';
 
 export default function BlogpostItem({ post }) {
   const formatDate = useFormatDate();
   const [formattedDate, setFormattedDate] = useState("");
+  const anchor = useRef(null);
 
   useEffect(() => {
     const formattedDate = formatDate(post.created_at, navigator.language)
     setFormattedDate(formattedDate);
   }, [formatDate, post.created_at]);
 
+  useEffect(() => {
+    VanillaTilt.init(anchor.current);
+  }, []);
+
   return (
     <>
       <div className="blogpost-item">
         <Link href={post.state ? `/blog/${post.slug}` : '#'}>
-          <a className="blogpost-item__link">
+          <a className="blogpost-item__link" ref={anchor}>
             <div className="blogpost-item__heading">
               <span className="blogpost-item__date">
                 {post.state ? formattedDate : "Coming soon"}

@@ -11,7 +11,11 @@ export default class WebsiteDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="preload" href="/fonts/Biotif-Light.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/Bogart-Medium.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+        </Head>
+
         <body>
           <script
             dangerouslySetInnerHTML={{

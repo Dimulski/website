@@ -14,7 +14,9 @@ export default function BaseLayout(props) {
           <div className="default-site-layout__content">
             <ThemeToggle />
             <Header />
-            <main>{props.content}</main>
+            <main>
+              {props.content}
+            </main>
           </div>
         </div>
       </ThemeProvider>

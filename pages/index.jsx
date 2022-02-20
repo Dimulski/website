@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import BaseLayout from '@layouts/BaseLayout';
 
 import HomepageStyles from '@styles/HomepageStyles';
@@ -210,21 +211,9 @@ export default function Homepage() {
                 <div className="home__hero-body">
                   <div className="home__hero-container">
                     <div className="home__hero-container-inner">
-                      <div className="home__hero-left">
-                        <span><strong>Hi there!</strong></span>
-                        <span>My name is</span>
-                        <span className="home__hero-name"><strong>Georgi Dimulski,</strong></span>
-                        <span>I’m a web developer,</span>
-                        <span>live in <strong>Plovdiv.</strong></span>
-                        <span>Check out my blog and résumé. 😎</span>
-                      </div>
-                      <div className="home__hero-right">
-                        <div className="home__hero-right-container">
-                          <div className="home__hero-right-cover cover atvImg">
-                            <div className="atvImg-layer" data-img="/resume.png"></div>
-                          </div>
-                        </div>
-                      </div>
+                      <h1>Hey.</h1> 
+                      <h1 className="home__hero-heading" >I&apos;m Georgi, a JavaScript developer</h1>
+                      <h1 className="home__hero-heading home__hero-heading--follow-up" >based in Plovdiv, Bulgaria.</h1>
                     </div>
                   </div>
                 </div>

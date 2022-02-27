@@ -24,12 +24,17 @@ export default css`
       }
     }
 
-    &__title {
+    &__info {
       @apply mt-2 mb-1;
 
       &--opaque {
         @apply opacity-50;
       }
+    }
+
+    &__title {
+      @apply text-2xl text-black font-bold hover:underline;
+      font-family: var(--bogart);
     }
 
     &__description {

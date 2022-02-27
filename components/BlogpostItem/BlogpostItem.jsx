@@ -15,7 +15,11 @@ export default function BlogpostItem({ post }) {
   }, [formatDate, post.created_at]);
 
   useEffect(() => {
-    VanillaTilt.init(anchor.current);
+    VanillaTilt.init(anchor.current, {
+      max: 10,
+      speed: 750,
+      scale: 1.05
+    });
   }, []);
 
   return (
@@ -33,8 +37,8 @@ export default function BlogpostItem({ post }) {
                 {post.read_time} min read
               </span>
             </div>
-            <div className={`blogpost-item__title${!post.state ? ' blogpost-item__title--opaque' : ''}`}>
-              <p className="text-2xl text-black font-bold hover:underline">
+            <div className={`blogpost-item__info${!post.state ? ' blogpost-item__info--opaque' : ''}`}>
+              <p className="blogpost-item__title">
                 {post.title}
               </p>
               <p className="blogpost-item__description">

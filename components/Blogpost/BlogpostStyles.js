@@ -10,6 +10,7 @@ export default css`
 
     &__title {
       @apply font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black;
+      font-family: var(--bogart);
     }
 
     &__info {

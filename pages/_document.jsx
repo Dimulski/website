@@ -12,8 +12,9 @@ export default class WebsiteDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preload" href="/fonts/Biotif-Light.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/Biotif-Medium.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
           <link rel="preload" href="/fonts/Bogart-Medium.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/ArbutusSlab-Regular.ttf" type="font/ttf" as="font" crossOrigin="anonymous" />
         </Head>
 
         <body>

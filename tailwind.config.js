@@ -13,6 +13,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     // fontFamily: fontFamily,
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     extend: {
       keyframes: {
         fadeUp: {
@@ -24,14 +28,22 @@ module.exports = {
             transform: 'translateY(0)',
             opacity: 1
           }
+        },
+        scaleFadeIn: {
+          '0%': {
+            transform: 'translate3d(0, 50px, 0) scale3d(.9, .9, .9)',
+            opacity: 0
+          },
+          '100%': {
+            transform: 'translateZ(0) scaleX(1)',
+            opacity: 1
+          }
         }
       },
       animation: {
         fadeUp: 'fadeUp .8s cubic-bezier(.165,.84,.44,1)',
+        scaleFadeIn: 'scaleFadeIn 1s cubic-bezier(.165, .84, .44, 1)',
       },
-      transitionDelay: {
-        '600': '600ms',
-      }
     },
   },
   plugins: [

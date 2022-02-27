@@ -9,7 +9,9 @@ export default css`
     }
 
     &__page-title {
-      @apply text-4xl;
+      @apply text-3xl;
+      font-size: 32px;
+      font-family: var(--bogart);
     }
   }
 `;

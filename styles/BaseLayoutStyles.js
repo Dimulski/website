@@ -3,10 +3,10 @@ import css from 'styled-jsx/css';
 export default css.global`
   @font-face {
     font-family: Biotif;
-    src: url('/fonts/Biotif-Light.ttf') format('truetype');
+    src: url('/fonts/Biotif-Medium.ttf') format('truetype');
     font-style: normal;
     font-weight: 300;
-    font-display: swap;
+    font-display: block;
   }
 
   @font-face {
@@ -14,15 +14,25 @@ export default css.global`
     src: url('/fonts/Bogart-Medium.ttf') format('truetype');
     font-style: medium;
     font-weight: 500;
-    font-display: swap;
-  }
-  
-  body, html {
-    font-family: Biotif,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-display: block;
+    unicode-range: U+0000-002F, U+003A-00FF;
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: Bogart,Recoleta,Helvetica Neue,Helvetica,Arial,sans-serif;
+  @font-face {
+    font-family: Bogart;
+    src: url('/fonts/ArbutusSlab-Regular.ttf') format('truetype');
+    font-style: medium;
+    font-weight: 500;
+    font-display: block;
+    unicode-range: U+0030-0039;
+  }
+  
+  :root {
+    --bogart: Bogart,Recoleta,Helvetica Neue,Helvetica,Arial,sans-serif;
+  }
+
+  body {
+    font-family: Biotif,Helvetica Neue,Helvetica,Arial,sans-serif;
   }
 
   body {

@@ -39,7 +39,7 @@ export default function Homepage() {
                     I&apos;m Georgi, a JavaScript developer
                   </div>
                   <div className="home__hero-heading-line home__hero-heading-line--follow-up">
-                    based in Plovdiv, Bulgaria.
+                    based in Sofia, Bulgaria.
                   </div>
                 </h1>
               </section>

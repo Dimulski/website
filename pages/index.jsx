@@ -22,7 +22,7 @@ export default function Homepage() {
   return (
     <>
       <Head>
-        <title>Georgi Dimulski | Web Developer</title>
+        <title>Georgi Dimulski | Software Engineer</title>
         <meta name="description" content="Georgi Dimulski's personal website" />
       </Head>
 
@@ -36,7 +36,7 @@ export default function Homepage() {
                     Hey.
                   </div>
                   <div className="home__hero-heading-line home__hero-heading-line--leading">
-                    I&apos;m Georgi, a JavaScript developer
+                    I&apos;m Georgi, a software engineer
                   </div>
                   <div className="home__hero-heading-line home__hero-heading-line--follow-up">
                     based in Sofia, Bulgaria.
